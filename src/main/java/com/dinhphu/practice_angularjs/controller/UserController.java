@@ -3,6 +3,7 @@ package com.dinhphu.practice_angularjs.controller;
 import com.dinhphu.practice_angularjs.model.UserDTO;
 import com.dinhphu.practice_angularjs.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -47,6 +48,13 @@ public class UserController {
     public ResponseEntity<UserDTO> deleteUser(@PathVariable Long id) {
         UserDTO user= this.userService.delete(id);
         return new ResponseEntity<UserDTO>(user,HttpStatus.OK);
+    }
+
+    @GetMapping("/email/{email}")
+    public ResponseEntity<List<UserDTO>> findRelativeEmail(@PathVariable String email){
+        String pattern="%d%a";
+        List<UserDTO> users=this.userService.findRelativeEmail(pattern);
+        return new ResponseEntity<List<UserDTO>>(users,HttpStatus.OK);
     }
 
 }

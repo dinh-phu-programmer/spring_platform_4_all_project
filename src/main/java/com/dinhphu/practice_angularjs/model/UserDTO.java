@@ -5,10 +5,11 @@ import java.io.Serializable;
 
 @Entity
 @Table(name="users")
-public class UserDTO implements Serializable {
+public class UserDTO extends RootClass implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(name="email")
     private String email;
     @Column(name="password")

@@ -1,4 +1,4 @@
-package com.dinhphu.practice_angularjs.service;
+package com.dinhphu.practice_angularjs.service.common;
 
 import java.util.List;
 
@@ -8,4 +8,5 @@ public interface CommonService<T,ID> {
     T delete(ID id);
     List<T> findAll();
     T findById(ID id);
+
 }
